@@ -29,18 +29,15 @@ public class MyOtherClass {
 }
 
 // usage
-ObjectGraph graph = new ObjectGraph(MyCustomClass.class);
-assertNull(graph.resolve("leafNode").value(new MyCustomClass()));
-
 
 MyCustomClass instance = new MyCustomClass();
+ObjectGraph graph = new ObjectGraph(MyCustomClass.class);
+
+
+assertNull(graph.resolve("leafNode").value(instance));
 instance.setLeafNode(true);
 assertTrue(graph.resolve("leafNode").value(instance));
-
-
-// nested fields are dot delimited
-MyCustomClass instance = new MyCustomClass();
 instance.getOther().setLeafNode(4);
-
 assertEquals(4, graph.resolve("other.leafNode").value(instance));
+
 ```
