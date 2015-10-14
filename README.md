@@ -14,7 +14,7 @@ query languages and the like.
 
 ```java
 
-// given:
+// given the following (getters / setters omitted for brevity)
 public class MyCustomClass {
 
     private Boolean leafNode;
@@ -29,7 +29,6 @@ public class MyOtherClass {
 }
 
 // usage
-
 MyCustomClass instance = new MyCustomClass();
 ObjectGraph graph = new ObjectGraph(MyCustomClass.class);
 
